@@ -1,7 +1,8 @@
-
 class Solution:
   def findKthLargest(self, nums: List[int], k: int) -> int:
     def quickSelect(l: int, r: int, k: int) -> int:
+      randIndex = random.randint(0, r - l) + l
+      nums[randIndex], nums[r] = nums[r], nums[randIndex]
       pivot = nums[r]
 
       nextSwapped = l
