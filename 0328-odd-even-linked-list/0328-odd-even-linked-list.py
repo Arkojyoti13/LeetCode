@@ -4,24 +4,21 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-  def oddEvenList(self, head: ListNode) -> ListNode:
-    oddHead = ListNode(0)
-    evenHead = ListNode(0)
-    odd = oddHead
-    even = evenHead
-    isOdd = True
-
-    while head:
-      if isOdd:
-        odd.next = head
-        odd = head
-      else:
-        even.next = head
-        even = head
-      head = head.next
-      isOdd = not isOdd
-
-    even.next = None
-    odd.next = evenHead.next
-    return oddHead.next
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        root1=ListNode(0)
+        root2=ListNode(0)
+        root=root2
+        t=root1
+        count=0
+        while head:
+            if count%2!=0:
+                root1.next=ListNode(head.val)
+                root1=root1.next
+            else:
+                root2.next=ListNode(head.val)
+                root2=root2.next
+            count+=1
+            head=head.next
+        root2.next=t.next
+        return root.next
         
